@@ -1,13 +1,12 @@
-
 @if(isset($produto_detalhe->id))
-    <form method="post" action="{{ route('produto.update', ['produto' => $produto_detalhe->id]) }}">
+    <form method="post" action="{{ route('produto-detalhe.update', ['produto_detalhe' => $produto_detalhe->id]) }}">
         @csrf
         @method('PUT')
 @else
     <form method="post" action="{{ route('produto-detalhe.store') }}">
         @csrf
 @endif
-    <input type="text" name="produto_id" value="{{ $produto_detalhe->produto_id ?? old('produto_id') }}" placeholder="Id do Produto" class="borda-preta">
+    <input type="text" name="produto_id" value="{{ $produto_detalhe->produto_id ?? old('produto_id') }}" placeholder="ID do Produto" class="borda-preta">
     {{ $errors->has('produto_id') ? $errors->first('produto_id') : '' }}
 
     <input type="text" name="comprimento" value="{{ $produto_detalhe->comprimento ?? old('comprimento') }}" placeholder="Comprimento" class="borda-preta">
